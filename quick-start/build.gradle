@@ -17,5 +17,4 @@ android {
 
 dependencies {
     compile project(':cropper')
-    compile 'com.android.support:appcompat-v7:24.1.1'
 }

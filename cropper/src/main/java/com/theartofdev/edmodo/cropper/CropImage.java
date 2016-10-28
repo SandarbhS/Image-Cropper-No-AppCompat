@@ -35,7 +35,6 @@ import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 
 import java.io.File;
 import java.io.InputStream;
@@ -411,44 +410,6 @@ public final class CropImage {
             intent.putExtra(CROP_IMAGE_EXTRA_SOURCE, mSource);
             intent.putExtra(CROP_IMAGE_EXTRA_OPTIONS, mOptions);
             return intent;
-        }
-
-        /**
-         * Start {@link CropImageActivity}.
-         *
-         * @param activity activity to receive result
-         */
-        public void start(@NonNull Activity activity) {
-            mOptions.validate();
-            activity.startActivityForResult(getIntent(activity), CROP_IMAGE_ACTIVITY_REQUEST_CODE);
-        }
-
-        /**
-         * Start {@link CropImageActivity}.
-         *
-         * @param activity activity to receive result
-         */
-        public void start(@NonNull Activity activity, @Nullable Class<?> cls) {
-            mOptions.validate();
-            activity.startActivityForResult(getIntent(activity, cls), CROP_IMAGE_ACTIVITY_REQUEST_CODE);
-        }
-
-        /**
-         * Start {@link CropImageActivity}.
-         *
-         * @param fragment fragment to receive result
-         */
-        public void start(@NonNull Context context, @NonNull Fragment fragment) {
-            fragment.startActivityForResult(getIntent(context), CROP_IMAGE_ACTIVITY_REQUEST_CODE);
-        }
-
-        /**
-         * Start {@link CropImageActivity}.
-         *
-         * @param fragment fragment to receive result
-         */
-        public void start(@NonNull Context context, @NonNull Fragment fragment, @Nullable Class<?> cls) {
-            fragment.startActivityForResult(getIntent(context, cls), CROP_IMAGE_ACTIVITY_REQUEST_CODE);
         }
 
         /**

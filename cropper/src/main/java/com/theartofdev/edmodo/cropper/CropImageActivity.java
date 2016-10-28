@@ -14,6 +14,7 @@ package com.theartofdev.edmodo.cropper;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -23,9 +24,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -37,7 +35,7 @@ import java.io.IOException;
  * Built-in activity for image cropping.<br>
  * Use {@link CropImage#activity(Uri)} to create a builder to start this activity.
  */
-public class CropImageActivity extends AppCompatActivity implements CropImageView.OnSetImageUriCompleteListener, CropImageView.OnCropImageCompleteListener {
+public class CropImageActivity extends Activity implements CropImageView.OnSetImageUriCompleteListener, CropImageView.OnCropImageCompleteListener {
 
     /**
      * The crop image view library widget used in the activity
@@ -83,7 +81,7 @@ public class CropImageActivity extends AppCompatActivity implements CropImageVie
             }
         }
 
-        ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getActionBar();
         if (actionBar != null) {
             String title = mOptions.activityTitle != null && !mOptions.activityTitle.isEmpty()
                     ? mOptions.activityTitle

@@ -15,7 +15,7 @@ android {
     compileSdkVersion 24
     buildToolsVersion '24.0.1'
     defaultConfig {
-        minSdkVersion 10
+        minSdkVersion 11
         targetSdkVersion 24
         versionCode 1
         versionName PUBLISH_VERSION
@@ -49,6 +49,6 @@ publishing {
 apply from: 'https://raw.githubusercontent.com/ArthurHub/release-android-library/master/android-release-aar.gradle'
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:support-annotations:24.1.1'
 }
 
