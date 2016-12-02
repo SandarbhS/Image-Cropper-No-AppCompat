@@ -27,18 +27,18 @@ Include the library
      android:theme="@style/Base.Theme.AppCompat"/> <!-- optional (needed if default theme has no action bar) -->
  ```
 
-3. Start `CropImageActivity` using builder pattern from your activity
+3. Start `CropImageActivity` using builder pattern from your activity or fragment
  ```java
- CropImage.activity(imageUri)
+ // To start a image picker, pass null as imageUri
+ Intent intent = CropImage.activity(imageUri)
     .setGuidelines(CropImageView.Guidelines.ON)
-    .start(this);
+    .getIntent(this);
 
- // for fragment (DO NOT use `getActivity()`)
- CropImage.activity(imageUri)
-     .start(getContext(), this);
+ startActivityForResult(intent, CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE);
+ 
  ```
 
-4. Override `onActivityResult` method in your activity to get crop result
+4. Override `onActivityResult` method in your activity or fragment to get crop result
  ```java
  @Override
  public void onActivityResult(int requestCode, int resultCode, Intent data) {
